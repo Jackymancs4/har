@@ -67,6 +67,21 @@ final class Response implements MessageInterface
         return $response->getHarResponse();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param \Symfony\Component\HttpFoundation\Response $source
+     * @return self
+     */
+    public static function fromSymfonyResponse(\Symfony\Component\HttpFoundation\Response $source): self
+    {
+        throw new \Exception('Not implemented');
+
+        $response = (new Adapter\Psr7\Response(new static()));
+
+        return $response->getHarResponse();
+    }
+
     public function getStatus(): int
     {
         return $this->status;
