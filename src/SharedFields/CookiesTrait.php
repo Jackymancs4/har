@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Deviantintegral\Har\SharedFields;
 
+use Deviantintegral\Har\Cookie;
+
 trait CookiesTrait
 {
     /**
@@ -28,6 +30,16 @@ trait CookiesTrait
     public function setCookies(array $cookies): self
     {
         $this->cookies = $cookies;
+
+        return $this;
+    }
+
+    /**
+     * @param \Deviantintegral\Har\Cookie $cookie
+     */
+    public function addCookie(Cookie $cookies): self
+    {
+        $this->cookies[] = $cookies;
 
         return $this;
     }
